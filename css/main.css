@@ -1,0 +1,19 @@
+.d-grid{
+	display: grid;
+	grid-template-columns: repeat(3,1fr);
+	gap:20px;
+}
+
+#cajaFotoGrande{
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#cajaMiniaturas div{
+	cursor: pointer;
+}
+#cajaFotoGrande img{
+	width: 100%;
+
+}
