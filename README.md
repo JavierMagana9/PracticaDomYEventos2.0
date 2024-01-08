@@ -54,33 +54,45 @@ const nuevosElementos = () => {
 
 ```
 
-2. pintar la foto grande blablabla:
+2. pintar la foto grande:
+
+aqui creo al igual que en la funcion anterior el HTML de forma dinamica y lo coloco dentro de mi div cajaFotoGrande. El innerHTML vacio al principio de la funcion impide que se acumulen una y otra vez cada vez que se hace click en los botones. 
 
 ```js
+const pintaGrande = (filter) => {
 
+    cajaFotoGrande.innerHTML = '';
+
+    
+        const caja = document.createElement("div")
+        const foto = document.createElement("img")
+        foto.src = filter
+        foto.classList.add("img-thumbnail")
+        caja.append(foto)
+        fragment.append(caja)
+        
+    
+    cajaFotoGrande.append(fragment)
+}
 ```
 
 
 ### Eventos
 Una vez decididas las funciones tenia que ver cuando se ejecutarian. Al hacer click en el boton "Mostrar Fotos".
-En este evento puse un condicional que se asegurara mi div cajaMiniaturas estuviera vacio antes de pintarse.
+
 
 ```js
-btnMostrar.addEventListener("click", ()=>{
-    if (cajaMiniaturas.children.length === 0) {
-        nuevosElementos();
-    }
-    
+btnMostrar.addEventListener("click", ()=>{ 
+        nuevosElementos();  
     })
 ```
 
-en este segundo evento utilice target blablabla
+en este segundo evento cree una constante filter que captura aquellos elementos que tienen src, es decir las imagenes. Al pasarlo como argumento a pintaGrande ya tenemos creada la foto en grande.
 ```js
 document.addEventListener("click", (ev)=>{
-    if(ev.target.matches("#cajaMiniaturas img")){
-        pintaGrande(ev.target)
-    }
-
+   const filter = ev.target.src
     
+        pintaGrande(filter)
+        
 } )
 ```

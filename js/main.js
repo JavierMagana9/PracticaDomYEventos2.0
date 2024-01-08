@@ -47,7 +47,7 @@ document.addEventListener("click", (ev)=>{
    const filter = ev.target.src
     
         pintaGrande(filter)
-        console.log(filter)
+        
 } )
 
 
